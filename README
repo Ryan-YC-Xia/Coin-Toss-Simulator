@@ -1,0 +1,81 @@
+Name: Yuchen Xia
+USC NetId: xiayuche
+CSCI 455 PA1
+Fall 2021
+
+----------------------------------------------
+CERTIFY IT'S YOUR WORK
+
+"I certify that the work submitted for this assignment does not
+violate USC's student conduct code.  In particular, the work is my
+own, not a collaboration, and does not involve code created by other
+people, except for the the resources explicitly mentioned in the CS 455
+Course Syllabus.  And I did not share my solution or parts of it with
+other students in the course."
+
+Initial below to "sign" the above statement:
+
+Yuchen Xia
+----------------------------------------------
+ACKNOWLEDGE ANY OUTSIDE SOURCES
+
+List here any code you submitted for this assignment that was written
+with significant help of a course staff member, or code used from the
+textbook.  Be specific about what methods or algorithms are involved,
+and what sections of the textbook are involved (if applicable): [you do
+not need to list any of the code that we wrote for the assignment,
+i.e., the contents of the starter files for the assignment]
+
+
+----------------------------------------------
+KNOWN BUGS or LIMITATIONS:
+
+
+No known bugs
+----------------------------------------------
+ANY OTHER NOTES FOR THE GRADER:
+
+
+
+----------------------------------------------
+ANSWERS TO ASSIGNMENT README QUESTIONS (if applicable):
+
+1. It is stated in the syllabus that "The outside code resources students will
+   be allowed to use in assignments for this class are limited to code written
+   by the course staff for the purposes of helping students in the course, or
+   code from the textbook for this course." So I think we're not allowed to
+   directly use any online sources.
+
+
+2. one head and one tail: 50%; two heads: 25%; two tails: 25%
+   The one head and one tail outcome has the highest possibility because the the 
+   two tosses are independent of each other, and each have the same possibilities 
+   of having a head or a tail. So the four results are of the same possibilities:
+   "head, head", "head, tail", "tail, head", "tail, tail". Among these four, two
+   of the belongs to the "one head and one tail" outcome, giving it a 50% overall
+   possibility.
+
+
+3. I did each 5 trials with input "500", "1000" and "5000". Two out of five failed 
+   for 500, one out of five failed for 1000, and all passed for 5000. It may be roughly
+   concluded that the required number of trials would be of the magnitude 10^3 to 10^4.
+   
+   Approaching this problem theoretically, the question can be translated into: "How
+   many trials are required to be 95% (or any appropriate value) confident that the
+   result for any of the three cases fall within 1% error of their expectations."
+   Simplifying it a little, we only consider the case of one head and one tail with 50%
+   possibility. Each trial qualifies as a Bernouli trial with p = 0.5. The actual number
+   of getting this outcome after N trials follows binomial distribution, which can be
+   approximated by normal distribution when N is fairly large. The standard deviation would
+   be sigma = 0.5 N^0.5. We are 95% confident that the outcome would fall within 1.96 sigma
+   from the expectation, 0.5N. Here, we want 1.96 sigma to be smaller than 0.01 N. After
+   calculation, N should be larger than 9604, about 10^4. 
+   It can thus be concluded theoretically that about 10^4 trials are required to be 95% confident 
+   that the outcome of the one head and one tail case fall within 1% error of its expectation.
+   Similar analysis can be done for other confidence levels or outcomes.
+
+   The answer can also be determined practically by writing a program which runs the simulation
+   a sufficient amount of times and recording the results. Details are omitted here.
+
+
+4. 2147483647 worked, while 2147483648 overflowed.
